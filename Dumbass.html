@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ffe6f0, #ffccda);
+            color: #ff69b4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            position: relative;
+            overflow-y: auto;
+            min-height: 100vh;
+        }
+        .header {
+            background-color: #ffb6c1;
+            padding: 20px;
+            font-size: 2.5em;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
+            animation: fadeIn 2s ease;
+        }
+        .content {
+            margin: 40px auto;
+            width: 80%;
+            max-width: 600px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 3s ease;
+        }
+        .center-gif {
+            margin: 20px 0;
+        }
+        .center-gif img {
+            width: 200px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+        }
+        .button-container {
+            margin-top: 30px;
+        }
+        .yes-button, .no-button {
+            font-size: 1.2em;
+            padding: 15px 30px;
+            margin: 10px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .yes-button {
+            background-color: #ff69b4;
+            color: white;
+        }
+        .yes-button:hover {
+            background-color: #ff1493;
+        }
+        .no-button {
+            background-color: #fff;
+            border: 2px solid #ff69b4;
+            color: #ff69b4;
+            position: relative;
+        }
+        .no-button:hover {
+            background-color: #ff69b4;
+            color: white;
+        }
+        .no-button.move {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .footer {
+            font-size: 1.2em;
+            margin-top: 20px;
+            color: #d2691e;
+        }
+        .footer a {
+            color: #ff69b4;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .image-container {
+            margin-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+            animation: fadeIn 4s ease;
+        }
+        .image-item {
+            width: 150px;
+            text-align: center;
+        }
+        .image-item img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+            margin-bottom: 10px;
+            transition: transform 0.5s ease;
+        }
+        .image-item img:hover {
+            transform: scale(1.1);
+        }
+        .image-comment {
+            color: #333;
+            font-size: 1em;
+            margin-top: 5px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        Happy Valentine's Day! <3
+    </div>
+
+    <div class="content">
+        <p>Hey Drishya,</p>
+        <p>I just wanted to say...</p>
+        <div class="center-gif">
+            <img src="https://media.giphy.com/media/l41lZxzroU33typuU/giphy.gif" alt="Love GIF">
+        </div>
+        <p>You make the world brighter just by being in it!🎀 </p>
+        <p>You are just as beautiul as the sunset, you are someone that words can't describe, you deserve the world, I just wish ki tu Humesha Kush rahe, wishing you loads of love and Happienes <3, you look even more prettier when you smile, specially when your cheeks start to glow red, I melt. (scroll Down)</p>
+    </div>
+
+    <div class="button-container">
+        <button class="yes-button" onclick="showYes()">Yes! 😊</button>
+        <button class="no-button" onclick="moveNo()" id="noButton">No 🙂</button>
+    </div>
+
+    <div class="image-container" id="imageContainer">
+        <div class="image-item">
+            <img src="photos/pic1.jpg" alt="Love GIF">
+            <div class="image-comment">"Love is in the air! 💕"</div>
+        </div>
+        <div class="image-item">
+            <img src="photos/pic2.jpeg" alt="Smiling GIF">
+            <div class="image-comment">"Never lose that smile of yours"</div>
+        </div>
+        <div class="image-item">
+            <img src="photos/pic3.jpg" alt="Together GIF">
+            <div class="image-comment">"this line is definetly you - Sundar Sundar Voh Haseena Badi Sundar Sundar Main To Khone Laga"</div>
+        </div>
+        <div class="image-item">
+            <img src="photos/pic4.jpg" alt="Cute GIF">
+            <div class="image-comment">"You're simply the cutest! 🐻"</div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>text karna baad me<a href="https://www.instagram.com/adiiii1_1" target="_blank"> insta pe</a></p>
+    </div>
+
+    <script>
+        let noButton = document.getElementById('noButton');
+        let counter = 0;
+
+        function moveNo() {
+            counter++;
+            if (counter < 5) {
+                let x = Math.random() * window.innerWidth * 0.8;
+                let y = Math.random() * window.innerHeight * 0.6;
+                noButton.style.left = `${x}px`;
+                noButton.style.top = `${y}px`;
+                noButton.classList.add('move');
+            } else {
+                alert("I knew ki you would say no! Just made the No button move for fun! 😂");
+            }
+        }
+
+        function showYes() {
+            alert("Wait, I did not expect that! <3");
+        }
+    </script>
+
+</body>
+</html>
